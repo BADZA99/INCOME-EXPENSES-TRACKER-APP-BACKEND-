@@ -1,4 +1,5 @@
 const express=require("express");
+const userRoute=require("./routes/users/userRoutes");
 
 const app=express();
 
@@ -6,51 +7,10 @@ const app=express();
 
 
 // users routes
-
+app.use("/api/v1/users", userRoute);
+// using thunder client for api testing
 // POST/api/v1/users/register
-app.post('/api/v1/users/register',async(req,res)=>{
-    try {
-        res.json({msg:'Register route'})
-    } catch (error) {
-       res.json(error) ;
-    }
-})
 
-// POST/api/v1/users/login
-app.post('/api/v1/users/login',async(req,res)=>{
-    try {
-        res.json({msg:'Login route'})
-    } catch (error) {
-       res.json(error); 
-    }
-})
-
-// GET/api/v1/users/profile/:id
-app.get('/api/v1/users/profile/:id',async(req,res)=>{
-    try {
-        res.json({msg:'Profile route'})
-    } catch (error) {
-       res.json(error); 
-    }
-})
-
-// DELETE/api/v1/users/profile/:id
-app.delete('/api/v1/users/profile/:id',async(req,res)=>{
-    try {
-        res.json({msg:'DELETE route'})
-    } catch (error) {
-       res.json(error); 
-    }
-})
-
-// PUT/api/v1/users/:id
-app.put('/api/v1/users/:id',async(req,res)=>{
-    try {
-        res.json({msg:'UPDATE route'})
-    } catch (error) {
-       res.json(error); 
-    }
-})
 
 // account routes
 
@@ -85,6 +45,15 @@ app.delete('/api/v1/accounts/:id',async(req,res)=>{
 app.put('/api/v1/accounts/:id',async(req,res)=>{
     try {
         res.json({msg:'update Account route'})
+    } catch (error) {
+       res.json(error) ;
+    }
+})
+
+// GET/api/v1/accounts
+app.get('/api/v1/accounts',async(req,res)=>{
+    try {
+        res.json({msg:'Get Accounts route'})
     } catch (error) {
        res.json(error) ;
     }
@@ -147,7 +116,7 @@ app.put('/api/v1/transactions/:id',async(req,res)=>{
 // error handlers
 
 // listen to server
-const port=process.env.PORT || 3000;
+const port=process.env.PORT || 9000;
 app.listen(port,()=>{
     console.log(`Server is up and  running on port ${port}`);
 });

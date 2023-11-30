@@ -4,11 +4,15 @@
   "description": "Keeping track of your income and expenses",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "PAPABN-DEV",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
