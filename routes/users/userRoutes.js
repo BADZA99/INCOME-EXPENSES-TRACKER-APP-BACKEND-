@@ -1,52 +1,22 @@
-
 const express = require('express');
+const {registerUserCtrl, loginUserCtrl, profileUserCtrl, updateUserCtrl, deleteUserCtrl}=require("../../controllers/users/usersController");
 
 const userRoutes = express.Router();
 
 // Route pour la création d'un utilisateur
-userRoutes.post("/register", async (req, res) => {
-  try {
-    res.json({ msg: "Register route" });
-  } catch (error) {
-    res.json(error);
-  }
-});
+userRoutes.post("/register",registerUserCtrl );
 
 // Route pour la connexion d'un utilisateur
-userRoutes.post("/login", async (req, res) => {
-  try {
-    res.json({ msg: "Login routeeeee" });
-  } catch (error) {
-    res.json(error);
-  }
-});
+userRoutes.post("/login", loginUserCtrl);
 
 // Route pour la récupération d'un utilisateur
-userRoutes.get("/profile/:id", async (req, res) => {
-  try {
-    res.json({ msg: "Profile route" });
-  } catch (error) {
-    res.json(error);
-  }
-});
+userRoutes.get("/profile/:id", profileUserCtrl);
 
 // Route pour la suppression d'un utilisateur
-userRoutes.delete("/:id", async (req, res) => {
-  try {
-    res.json({ msg: "DELETE route" });
-  } catch (error) {
-    res.json(error);
-  }
-});
+userRoutes.delete("/:id", deleteUserCtrl);
 
 // Route pour la modification d'un utilisateur
-userRoutes.put("/:id", async (req, res) => {
-  try {
-    res.json({ msg: "UPDATE route" });
-  } catch (error) {
-    res.json(error);
-  }
-});
+userRoutes.put("/:id", updateUserCtrl);
 
 
 module.exports = userRoutes;
