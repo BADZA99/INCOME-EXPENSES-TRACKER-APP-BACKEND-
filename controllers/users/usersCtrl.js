@@ -4,6 +4,7 @@ const registerUserCtrl = async (req, res) => {
     res.json({ msg: "Register route" });
   } catch (error) {
     res.json(error);
+    console.log("error")
   }
 };
 
