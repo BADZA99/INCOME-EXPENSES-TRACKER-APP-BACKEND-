@@ -1,5 +1,5 @@
 const express = require('express');
-const {registerUserCtrl, loginUserCtrl, profileUserCtrl, updateUserCtrl, deleteUserCtrl}=require("../../controllers/users/usersController");
+const {registerUserCtrl, userLoginCtrl, userProfileCtrl, updateUserCtrl, deleteUserCtrl}=require("../../controllers/users/usersCtrl");
 
 const userRoutes = express.Router();
 
@@ -7,10 +7,10 @@ const userRoutes = express.Router();
 userRoutes.post("/register",registerUserCtrl );
 
 // Route pour la connexion d'un utilisateur
-userRoutes.post("/login", loginUserCtrl);
+userRoutes.post("/login", userLoginCtrl);
 
 // Route pour la récupération d'un utilisateur
-userRoutes.get("/profile/:id", profileUserCtrl);
+userRoutes.get("/profile/:id", userProfileCtrl);
 
 // Route pour la suppression d'un utilisateur
 userRoutes.delete("/:id", deleteUserCtrl);
